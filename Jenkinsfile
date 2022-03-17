@@ -12,6 +12,9 @@ node {
     stage("Tagging"){
         sh "docker tag tools:latest ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/tools:latest"
     }
+    stage("Push Image"){
+        sh "docker push ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/tools:latest"
+    }
 }
 
 
