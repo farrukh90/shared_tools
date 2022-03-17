@@ -18,6 +18,9 @@ node {
     stage("Push Image"){
         sh "docker push ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/tools:latest"
     }
+    stage("Email") {
+        sh "echo hello" //"/email"
+    }
 }
 
 
