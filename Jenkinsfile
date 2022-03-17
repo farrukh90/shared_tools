@@ -7,7 +7,7 @@ node {
         checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/farrukh90/shared_tools.git']]])
     }   
     stage("Build"){
-        sh "docker build -t tools github.com/farrukh90/shared_tools"
+        sh "docker build -t tools github.com/farrukh90/shared_tools.git"
     }
     stage("Tagging"){
         sh "docker tag tools:latest ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/tools:latest"
