@@ -5,6 +5,9 @@ node {
     stage("Build"){
         sh "docker build -t tools ."
     }
+    stage("Tagging"){
+        sh "docker tag tools:latest 713287746880.dkr.ecr.us-east-1.amazonaws.com/tools:latest"
+    }
 }
 
 
