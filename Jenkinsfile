@@ -12,6 +12,9 @@ node {
     stage("Tagging"){
         sh "docker tag tools:latest ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/tools:latest"
     }
+    stage("Authenticate"){
+        sh "aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com"
+    }
     stage("Push Image"){
         sh "docker push ${AWS_ACCOUNT}.dkr.ecr.us-east-1.amazonaws.com/tools:latest"
     }
@@ -25,7 +28,8 @@ node {
 // node {
 //     Clone 
 //     Build 
-//     Tagging 
+//     Tagging
+//     Authentication 
 //     Push 
 //     Email 
 // }
