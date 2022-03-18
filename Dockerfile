@@ -1,4 +1,4 @@
-FROM   centos:7
+FROM   sharedtools:4.7
 RUN  yum update -y && \
      yum -y install telnet unzip wget  && \
 
@@ -7,3 +7,5 @@ RUN  yum update -y && \
      unzip terraform_0.14.11_linux_amd64.zip && \
      mv terraform /usr/bin  && \
      terraform version 
+
+     # Install packer
