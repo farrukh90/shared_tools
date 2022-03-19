@@ -30,6 +30,7 @@ node {
 
 // node {
 //     Clone 
+//     Code analysis   (sonarqube, veracode)
 //     Build 
 //     Tagging
 //     Authentication 
